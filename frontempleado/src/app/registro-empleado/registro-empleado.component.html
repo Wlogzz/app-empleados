@@ -1,0 +1,24 @@
+    <div class="col-md-5 offset-md-3">
+        <h3 class="text-center mt-5 mb-3">Registro de Empleado</h3>
+        <form (ngSubmit)="onSubmit()">
+            <div class="form-group mb-3">
+                <label>Nombre:</label>
+                <input id="nombre" name="nombre" type="text" class="form-control" [(ngModel)] = "empleado.nombre" required minlength="4" maxlength="10" #nombre="ngModel">
+                <div class="alert alert-danger" *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)">
+                    <div *ngIf="'nombre.errors.minlength && nombre.errors.maxlength'">
+                        El nombre debe contener entre 4 y 10 carácteres 
+                    </div>
+                </div>
+            </div>
+            <div class="form-group mb-3">
+                <label>Apellido:</label>
+                <input id="apellido" name="apellido" type="text" class="form-control" [(ngModel)] = "empleado.apellido" required>
+            </div>
+            <div class="form-group mb-3">
+                <label>Email:</label>
+                <input id="email" name="email" type="text" class="form-control" [(ngModel)] = "empleado.email" required>
+            </div>
+            <button class="btn btn-warning">Guardar</button>
+        </form>
+    </div>
+
