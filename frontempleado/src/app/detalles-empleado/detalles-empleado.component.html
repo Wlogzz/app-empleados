@@ -1,12 +1,15 @@
-<h3 class="text-center mt-5 mb-3">Detalles del Empleado {{empleado.nombre}}</h3>
+<h3 class="text-center mt-5 mb-3">Detalles del Empleado {{empleado.nombre}} {{empleado.apellido}}</h3>
 <div class="container col-md-8">
     <div>
-        <label>ID: {{empleado.id}}</label>
+        <label><strong>ID:</strong> {{empleado.id}}</label>
     </div>
     <div>
-        <label>Nombre: {{empleado.nombre}}</label>
+        <label><strong>Nombre:</strong> {{empleado.nombre}}</label>
     </div>
     <div>
-        <label>Email: {{empleado.email}}</label>
+        <label><strong>Apellido:</strong> {{empleado.apellido}}</label>
+    </div>
+    <div>
+        <label><strong>Email:</strong> {{empleado.email}}</label>
     </div>
 </div>

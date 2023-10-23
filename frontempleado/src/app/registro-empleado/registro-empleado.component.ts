@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Empleado } from '../empleado';
 import { EmpleadoService } from '../empleado.service';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-registro-empleado',
@@ -20,8 +21,17 @@ export class RegistroEmpleadoComponent {
   guardarEmpleado(){
     this.empleadoServicio.registrarEmpleado(this.empleado).subscribe(dato => {
       // console.log(dato);
-      this.retornarListaEmpleado();
+      Swal.fire({
+        title: 'Empleado registrado!',
+        text: `El empleado ${this.empleado.nombre} ${this.empleado.apellido} ha sido agregado con exito`,
+        icon: 'success',
+        confirmButtonText: 'Ok',
+        didClose: () => {
+          this.retornarListaEmpleado();
+        }
+      })
     }, error => console.log(error));
+
   }
 
   onSubmit(){
@@ -32,5 +42,6 @@ export class RegistroEmpleadoComponent {
   retornarListaEmpleado(){
     this.router.navigate(['/empleados']);
   }
+
 
 }

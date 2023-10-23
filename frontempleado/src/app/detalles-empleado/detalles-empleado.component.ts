@@ -1,7 +1,9 @@
+import { Empleado } from './../empleado';
 import { Component, OnInit } from '@angular/core';
-import { Empleado } from '../empleado';
 import { ActivatedRoute } from '@angular/router';
 import { EmpleadoService } from '../empleado.service';
+import Swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-detalles-empleado',
@@ -10,8 +12,8 @@ import { EmpleadoService } from '../empleado.service';
 })
 export class DetallesEmpleadoComponent implements OnInit {
 
-  id:number;
-  empleado:Empleado;
+  id: number;
+  empleado: Empleado;
 
   constructor(private empleadoServicio : EmpleadoService, private route : ActivatedRoute){}
 
@@ -19,7 +21,13 @@ export class DetallesEmpleadoComponent implements OnInit {
     this.id = this.route.snapshot.params['id'];
     this.empleado = new Empleado();
     this.empleadoServicio.obtenerEmpleadoPorId(this.id).subscribe(dato => {
-      this.empleado;
+      this.empleado = dato;
+      Swal.fire({
+        title: 'Perfecto!',
+        text: `Detalles del empleado ${this.empleado.nombre}  ${this.empleado.apellido}`,
+        icon: 'success',
+        confirmButtonText: 'Ok'
+      })
     });
   }
 

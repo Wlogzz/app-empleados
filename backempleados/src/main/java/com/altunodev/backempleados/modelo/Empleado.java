@@ -1,7 +1,7 @@
 package com.altunodev.backempleados.modelo;
 
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "empleados")
@@ -11,25 +11,27 @@ public class Empleado {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "nombre", length = 60, nullable = false)
     private String nombre;
 
+    @Column(name = "apellido", length = 60, nullable = false)
     private String apellido;
 
-    @Column(unique = true, nullable = false)
-    private String correo;
+    @Column(name = "email", length = 60, nullable = false, unique = true)
+    private String email;
 
-//    Constructor Vacío
+    //    Constructor Vacío
     public Empleado() {
     }
 
-    public Empleado(Long id, String nombre, String apellido, String correo) {
+    public Empleado(Long id, String nombre, String apellido, String email) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
-        this.correo = correo;
+        this.email = email;
     }
 
-//    Getters and Setters
+    //    Getters and Setters
     public Long getId() {
         return id;
     }
@@ -54,11 +56,11 @@ public class Empleado {
         this.apellido = apellido;
     }
 
-    public String getCorreo() {
-        return correo;
+    public String getEmail() {
+        return email;
     }
 
-    public void setCorreo(String correo) {
-        this.correo = correo;
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

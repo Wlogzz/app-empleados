@@ -24,17 +24,17 @@ export class EmpleadoService {
   }
 
   // Método para obtener datos del empleado por ID
-  obtenerEmpleadoPorId(id: number): Observable<Empleado[]> {
-    return this.httpClient.get<Empleado[]>(`${this.baseURL}/${id}`);
+  obtenerEmpleadoPorId(id: number): Observable<Empleado> {
+    return this.httpClient.get<Empleado>(`${this.baseURL}/${id}`);
   }
 
   // Método para modificar datos del empleado por id
-  actualizarEmpleado(id : number, empleado : Empleado) : Observable<Object>{
+  actualizarEmpleado(id: number, empleado: Empleado): Observable<Object> {
     return this.httpClient.put(`${this.baseURL}/${id}`, empleado);
   }
 
   // Método para eliminar datos del empleado
-  eliminarEmpleado(id : number) : Observable<Object>{
+  eliminarEmpleado(id: number): Observable<Object> {
     return this.httpClient.delete(`${this.baseURL}/${id}`);
   }
 
