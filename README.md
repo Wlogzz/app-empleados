@@ -1,8 +1,8 @@
 # App Empleados FullStack 
 
-### `Backend` -> `Java` + `Spring Boot` + `Maven` + `PostgreSQL`
+### `Backend` -> `Java v.17` + `Spring Boot` + `Maven` + `JPA` + `PostgreSQL`
 
-### `Frontend` -> `Angular`
+### `Frontend` -> `Angular v.15`
 
 #### Proyecto realizado en Java junto con el framework Spring Boot
 
